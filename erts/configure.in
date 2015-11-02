@@ -611,7 +611,7 @@ AC_SUBST(WERRORFLAGS)
 AC_SUBST(CFLAG_RUNTIME_LIBRARY_PATH)
 
 AC_CHECK_SIZEOF(void *) # Needed for ARCH and smp checks below
-if test "x$ac_cv_sizeof_void_p" = x8; then
+if test "x$ac_cv_sizeof_void_p" = x8 -o "$ac_cv_host" = *x32; then
   AC_SUBST(EXTERNAL_WORD_SIZE, 64)
 else
   AC_SUBST(EXTERNAL_WORD_SIZE, 32)
@@ -688,8 +688,9 @@ x86-8)
 	ARCH=amd64
 	;;
 amd64-4)
-	AC_MSG_RESULT(yes: adjusting ARCH=amd64 to ARCH=x86)
-	ARCH=x86
+        dnl for x32 build, do nothing here
+        dnl AC_MSG_RESULT(yes: adjusting ARCH=amd64 to ARCH=x86)
+	dnl ARCH=x86
 	;;
 ultrasparc-8)
 	AC_MSG_RESULT(yes: adjusting ARCH=ultrasparc to ARCH=sparc64)

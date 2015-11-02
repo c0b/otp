@@ -38,7 +38,7 @@
 #undef ERL_FUN_SIZE
 #include "hipe_literals.h"
 
-const Uint sse2_fnegate_mask[2] = {0x8000000000000000,0};
+const Uint64 sse2_fnegate_mask[2] = {0x8000000000000000,0};
 
 void hipe_patch_load_fe(Uint64 *address, Uint64 value)
 {

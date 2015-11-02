@@ -33,6 +33,6 @@ static __inline__ int hipe_word64_address_ok(void *address)
 
 #define hipe_arch_name	am_amd64
 
-extern const Uint sse2_fnegate_mask[];
+extern const Uint64 sse2_fnegate_mask[];
 
 #endif /* HIPE_AMD64_H */

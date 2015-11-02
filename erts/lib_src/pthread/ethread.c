@@ -195,13 +195,13 @@ ethr_x86_cpuid__(int *eax, int *ebx, int *ecx, int *edx)
      * we have the cpuid instruction.
      */
     __asm__ ("pushf\n\t"
-             "popl %%eax\n\t"
+             "pop %%rax\n\t"
              "movl %%eax, %%ecx\n\t"
              "xorl $0x200000, %%eax\n\t"
-             "pushl %%eax\n\t"
+             "push %%rax\n\t"
              "popf\n\t"
              "pushf\n\t"
-             "popl %%eax\n\t"
+             "pop %%rax\n\t"
              "movl $0x0, %0\n\t"
              "xorl %%ecx, %%eax\n\t"
              "jz no_cpuid\n\t"
